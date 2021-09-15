@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\FileLogger;
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -15,4 +17,8 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+
+$router->get('/formatter', function () use ($router) {
+    return FileLogger::log('hi');
 });

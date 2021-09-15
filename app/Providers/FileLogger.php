@@ -2,21 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\contracts\Events\Logger;
+use App\Libraries\Formatter;
+use Illuminate\Contracts\Events\Logger;
 
-final class FileLogger implements Logger
+class FileLogger
 {
-	private 
-
-    public function __construct(Formatter $formatter)
+    public static function log(string $message): void
     {
-        $this->formatter = $formatter;
-    }
-
-    public function log(string $message): void
-    {
-    	$formattedMessage = $this->formatter->formatt($message);
-
-    	echo $formattedMessage;
+    	echo $message;
     }
 }
